@@ -107,6 +107,7 @@ class SideBar extends React.Component {
                         </div>
                         :
                         <div>
+                            {'test'}
                             {this.state.loginFormVisible
                                 ?
                                 <Login 
