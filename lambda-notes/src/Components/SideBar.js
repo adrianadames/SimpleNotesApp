@@ -46,23 +46,23 @@ class SideBar extends React.Component {
     }
 
     componentDidMount() {
-        console.log("sidebar cdm")
+        // console.log("sidebar cdm")
 
-        console.log('sidebar this.state: ', this.state)
+        // console.log('sidebar this.state: ', this.state)
     }
 
     toggleLoginFormVisibility = () => {
         this.setState(prevState => ({
           loginFormVisible:!prevState.loginFormVisible
         }))
-        console.log('loginFormVisible :', this.state.loginFormVisible)
+        // console.log('loginFormVisible :', this.state.loginFormVisible)
     }
 
     toggleRegisterFormVisibility = () => {
         this.setState(prevState => ({
             registerFormVisible:!prevState.registerFormVisible
         }))
-        console.log('registerFormVisible :', this.state.registerFormVisible)
+        // console.log('registerFormVisible :', this.state.registerFormVisible)
     }
 
     toggleRegisterAndLoginFormVisibility = () => {

@@ -19,7 +19,7 @@ class Register extends Component {
     inputChangeHandler = e => {
         e.preventDefault();
         const {name, value} = e.target;
-        console.log('name: ', name, 'value: ', value);
+        // console.log('name: ', name, 'value: ', value);
         this.setState({[name]: value});
     }
 
@@ -32,7 +32,7 @@ class Register extends Component {
         axios
             .post(`${host}/api/register`, registerData) 
             .then(res=> {
-                console.log('res: ', res);
+                // console.log('res: ', res);
                 const lambdaNotesToken = res.data.token;
                 const lambdaNotesUserId = res.data.userId;
                 localStorage.setItem('lambdaNotesToken', lambdaNotesToken);
@@ -40,7 +40,7 @@ class Register extends Component {
                 this.props.fetchNoteEntries();
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
                 let errorMessage = err;
                 if (errorMessage.message === "Request failed with status code 401") {
                     this.setState({errorMessage:'Invalid Credentials'})

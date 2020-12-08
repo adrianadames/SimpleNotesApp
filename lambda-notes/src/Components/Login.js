@@ -36,7 +36,7 @@ class Login extends Component {
     inputChangeHandler = e => {
         e.preventDefault();
         const {name, value} = e.target;
-        console.log('name: ', name, 'value: ', value);
+        // console.log('name: ', name, 'value: ', value);
         this.setState({[name]: value});
     }
 
@@ -46,11 +46,11 @@ class Login extends Component {
             'username': this.state.username,
             'password': this.state.password
         };
-        console.log(`${host}/api/login`)
+        // console.log(`${host}/api/login`)
         axios
             .post(`${host}/api/login`, loginData) 
             .then(res=> {
-                console.log('res: ', res);
+                // console.log('res: ', res);
                 const lambdaNotesToken = res.data.token;
                 const lambdaNotesUserId = res.data.userId;
                 localStorage.setItem('lambdaNotesToken', lambdaNotesToken);
@@ -58,7 +58,7 @@ class Login extends Component {
                 this.props.fetchNoteEntries();
             })
             .catch(err => {
-                console.log('err: ', err)
+                // console.log('err: ', err)
                 let errorMessage = err;
                  if (errorMessage.message === "Request failed with status code 401") {
                     this.setState({errorMessage:'Invalid Credentials'})
