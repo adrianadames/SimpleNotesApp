@@ -75,7 +75,7 @@ class SideBar extends React.Component {
         return (
             <SideBarContainerStyledDiv>
                 <SideBarStyledHeading>
-                    Lambda Notes
+                    Simple Notes App
                 </SideBarStyledHeading>
                 <br />
                 <Link to={"/"}>
@@ -107,7 +107,6 @@ class SideBar extends React.Component {
                         </div>
                         :
                         <div>
-                            {'test'}
                             {this.state.loginFormVisible
                                 ?
                                 <Login 

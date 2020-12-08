@@ -7,15 +7,31 @@ const StyledInput = styled.input`
     background-color:#D8D8D8
 `
 
+const StyledSpan = styled.span`
+    font-weight: bold;
+`;
+
+const StyledDemoCredentialsDiv = styled.div`
+    border: 1px solid black;
+`;
+
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
             username: '',
             password: '', 
-            errorMessage:null
+            errorMessage:null, 
+            demoCredentials: false
         };
     };
+
+    toggleDemoCredentials = e => {
+        e.preventDefault();
+        this.setState((prevState => ({
+            demoCredentials:!prevState.demoCredentials
+          })))
+    }
 
     inputChangeHandler = e => {
         e.preventDefault();
@@ -85,9 +101,24 @@ class Login extends Component {
                         null
                     }
                     <br/>
-                    <div onClick = {this.props.toggleRegisterAndLoginFormVisibility}>
-                        Don't have an account? Click here to Register.
+                    <div >
+                        Don't have an account? <br/><br/>
+                        <StyledSpan onClick = {this.props.toggleRegisterAndLoginFormVisibility}>Register </StyledSpan> 
+                        or click <StyledSpan onClick = {this.toggleDemoCredentials}>here</StyledSpan> for demo credentials. 
                     </div>
+                    <br/>
+                    {this.state.demoCredentials
+                        ?
+                        <StyledDemoCredentialsDiv>
+                            <span>Demo Credentials</span>
+                            <br/>
+                            <br/>
+                            username: adrian123
+                            password: adames123
+                        </StyledDemoCredentialsDiv>
+                        :
+                        null
+                    }
                 </form>
             </div>
         )
